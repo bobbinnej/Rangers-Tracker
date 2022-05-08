@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@1,400;1,600&family=Caveat&family=Josefin+Sans:wght@600&family=Montserrat&family=Pacifico&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;1,400&family=Righteous&family=Rubik+Bubbles&family=Rubik+Glitch&family=Rubik+Wet+Paint&display=swap');
+
+.index{
+  height:635.5px;
+
+}
+.navbar{
+  position: absolute;
+    margin: 20px;
+    width: auto;
+}
+
+.navbar-light{
+   background-color:transparent;
+}
+nav .navbar-nav{
+
+     padding-top:3%;
+     padding-left:5%;
+}
+
+nav .navbar-brand{
+    color:white !important;
+    font-size:30px;
+    font-family: 'Righteous', cursive;
+}
+nav .navbar-brand:hover{
+    color:gold !important;
+    font-size:30px;
+    font-family: 'Righteous', cursive;
+}
+
+nav .navbar-nav li a{
+
+    color:gold !important;
+    font-size:20px;
+    font-family: 'Righteous', cursive;
+}
+nav .navbar-nav li a:hover{
+
+    color:white !important;
+    font-size:20px;
+    font-family: 'Righteous', cursive;
+}
+.wildlifeTitle{
+   text-align:center;
+   display:flex;
+   height:600px;
+   font-size:80px;
+   color:white;
+   justify-content:center;
+   align-items:center;
+   margin-bottom:-20%;
+}
+.typing-text{
+    text-align:center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.typewrite{
+  text-decoration:none;
+  color:gold !important;
+  font-size:20px;
+}
