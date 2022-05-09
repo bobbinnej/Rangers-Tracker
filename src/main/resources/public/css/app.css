@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@1,400;1,600&family=Caveat&family=Josefin+Sans:wght@600&family=Montserrat&family=Pacifico&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;1,400&family=Righteous&family=Rubik+Bubbles&family=Rubik+Glitch&family=Rubik+Wet+Paint&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@1,400;1,600&family=Caveat&family=Josefin+Sans:wght@600&family=Lobster+Two&family=Montserrat&family=Pacifico&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;1,400&family=Righteous&family=Rubik+Bubbles&family=Rubik+Glitch&family=Rubik+Wet+Paint&display=swap');
 
 .index{
   height:635.5px;
@@ -62,4 +63,55 @@ nav .navbar-nav li a:hover{
   text-decoration:none;
   color:gold !important;
   font-size:20px;
+}
+.new-animal-title{
+  font-size:50px;
+  font-weight:bold;
+  font-family: 'Lobster Two', cursive;
+  color:white;
+  text-align:center;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:300px;
+  margin-bottom:-10%;
+  animation: zoomInDown; /* referring directly to the animation's @keyframe declaration */
+  animation-duration: 2s; /* don't forget to set a duration! */
+
+}
+.animate__animated.animate__zoomInDown {
+  --animate-duration: 10s;
+}
+
+/* This changes all the animations globally */
+:root {
+  --animate-duration: 800ms;
+  --animate-delay: 0.9s;
+}
+.form-label{
+  color:brown;
+  font-size:20px;
+  font-weight:bold;
+}
+.form-control{
+  background-color: transparent;
+  color:white;
+}
+.add-animal-button{
+   width:200px;
+   height:40px;
+   border-radius:20px;
+   border:2px solid gold;
+   color:gold !important;
+   background-color:black !important;
+
+   text-align:center;
+   display:flex;
+   justify-content:center;
+   align-items:center;
+
+}
+.add-animal-button:hover{
+   color:white !important;
+
 }

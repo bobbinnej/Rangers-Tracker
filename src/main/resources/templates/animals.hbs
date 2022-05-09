@@ -1,0 +1,47 @@
+{{#partial "content"}}
+    <div class="animals-content" style="background: url('images/animalsback.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+        <div class="new-animal">
+            <h1 class="new-animal-title" animate__animated animate__zoomInDown>Add Sighted Animal Details</h1>
+        </div>
+        <div class="animals-form container">
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <form method="post" action="/new/animals">
+                        <div class="mb-3">
+                            <label for="animal-Name" class="form-label">Animal Name:</label>
+                            <input type="text" class="form-control" id="exampleFormControlInput1" ><br>
+                            <label for="animal-category" class="form-label">Animal Category:</label><br>
+                            <select class="form-control">
+                                <option>Select category option from dropdown</option>
+                                <option>Endangered animal</option>
+                                <option>Normal wild animal</option>
+                            </select><br>
+                            <label for="animal-health" class="form-label">Animal Health:</label><br>
+                            <select class="form-control">
+                                <option>Select health option from dropdown</option>
+                                <option>Healthy</option>
+                                <option>Ill</option>
+                                <option>Okay</option>
+                            </select><br>
+                            <label for="animal-age" class="form-label">Animal Age:</label><br>
+                            <select class="form-control">
+                                <option>Select age option from dropdown</option>
+                                <option>Newborn</option>
+                                <option>Young</option>
+                                <option>Adult</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <button class="add-animal-button">Add Animal</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+
+        </div>
+    </div>
+
+{{/partial}}
+{{>layout.hbs}}

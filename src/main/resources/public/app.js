@@ -54,3 +54,9 @@ var TxtType = function(el, toRotate, period) {
         css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
         document.body.appendChild(css);
     };
+
+// All animations will take twice the time to accomplish
+document.documentElement.style.setProperty('--animate-duration', '2s');
+
+// All animations will take half the time to accomplish
+document.documentElement.style.setProperty('--animate-duration', '.5s');
