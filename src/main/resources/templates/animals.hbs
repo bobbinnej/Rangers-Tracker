@@ -33,7 +33,7 @@
                             </select>
                         </div>
                         <div class="mb-3">
-                            <button class="add-animal-button">Add Animal</button>
+                            <button class="add-animal-button" type="submit">Add Animal</button>
                         </div>
                     </form>
                 </div>
@@ -41,7 +41,34 @@
             </div>
 
         </div>
+
+        <!--Display saved animals in a table-->
+        <div class="container">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Health</th>
+                    <th scope="col">Age</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                {{#each animals}}
+                    <tr>
+                        <td>{{name}}</td>
+                        <td>{{category}}</td>
+                        <td>{{health}}</td>
+                        <td>{{age}}</td>
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+        </div>
     </div>
+
+
 
 {{/partial}}
 {{>layout.hbs}}

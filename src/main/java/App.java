@@ -1,5 +1,8 @@
 import static spark.Spark.*;
 import java.util.HashMap;
+
+import models.Animals;
+import models.Endangered;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 import spark.ModelAndView;
 import java.util.Map;
@@ -15,6 +18,7 @@ public class App {
           return new ModelAndView(model,"index.hbs");
       },  new HandlebarsTemplateEngine());
 
+      //animals
       get("/animals", (request,respond)->{
           Map<String, Object>model=new HashMap<>();
           return new ModelAndView(model, "animals.hbs");
@@ -27,7 +31,10 @@ public class App {
           String health=request.queryParams("health");
           String age=request.queryParams("age");
 
-          Endangered endanger=new Endagered()
-      })
+          Animals animals=new Animals(name,category,health,age);
+          animals.save();
+          respond.redirect("/animals");
+          return null;
+      }, new HandlebarsTemplateEngine());
     }
 }

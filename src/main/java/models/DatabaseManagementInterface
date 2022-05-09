@@ -1,0 +1,4 @@
+public interface DatabaseManagementInterface{
+     public void save();
+     public void delete();
+}
