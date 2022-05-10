@@ -1,5 +1,5 @@
 {{#partial "content"}}
-    <div class="location-content" style="background: url('images/locationback1.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+    <div class="location-content" style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),  url('images/locationback1.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
         <div class="new-animal">
             <h1 class="new-animal-title" animate__animated animate__zoomInDown>Add Location Details</h1>
         </div>
@@ -8,10 +8,11 @@
             <div class="row" style="margin-bottom: 2%">
                 <div class="col-md-4"></div>
                 <div class="col">
-                    <input type="text" class="form-control" placeholder="name" id="name" name="name">
+                    <label for="location-name" class="form-label">Enter Location:</label>
+                    <input type="text" class="form-control"  id="name" name="name" required>
                 </div>
-                <div class="col">
-                    <button type="submit" class="btn btn-success">Save Location</button>
+                <div class="col save-location" >
+                    <button type="submit" class="add-animal-button">Save Location</button>
                 </div>
             </div>
         </form>
@@ -21,7 +22,7 @@
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
                     <table class="table">
-                        <thead style="background-color:black; color:white">
+                        <thead class="location-header">
                         <tr>
                             <th scope="col">Id</th>
                             <th scope="col">Name</th>
@@ -29,8 +30,8 @@
                         </thead>
                         <tbody>
                         {{#each location}}
-                            <tr>
-                                <th scope="row">{{id}}</th>
+                            <tr class="display-location">
+                                <td >{{id}}</td>
                                 <td>{{name}}</td>
                             </tr>
                         {{/each}}

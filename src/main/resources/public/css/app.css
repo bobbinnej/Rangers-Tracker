@@ -154,3 +154,17 @@ color:white;
 color:white;
 }
 
+.location-header{
+ color:gold;
+ font-size:25px;
+ font-weight:bold;
+
+}
+
+.display-location{
+ color:white;
+}
+.save-location{
+ margin-top:3%;
+}
+
