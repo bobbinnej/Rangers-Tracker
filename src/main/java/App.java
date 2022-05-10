@@ -1,10 +1,7 @@
 import static spark.Spark.*;
 import java.util.HashMap;
 
-import models.Animals;
-import models.Endangered;
-import models.Location;
-import models.Ranger;
+import models.*;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 import spark.ModelAndView;
 import java.util.Map;
@@ -94,6 +91,28 @@ public class App {
             respond.redirect("/rangers");
             return null;
 
+        }, new HandlebarsTemplateEngine());
+
+        //get sighting
+        get("/sightings",(request,respond)->{
+            Map<String, Object>model=new HashMap<>();
+            model.put("sightings", Sightings.all());
+            return new ModelAndView(model, "/sightings.hbs");
+        },  new HandlebarsTemplateEngine());
+
+        // post new sighting
+
+        post("/sightings", (request,respond)->{
+            Map<String,Object>model=new HashMap<>();
+            String location=request.queryParams("location");
+            String ranger=request.queryParams("ranger");
+            String animal=request.queryParams("animal");
+
+            Sightings sightings=new Sightings(location,ranger,animal);
+            sightings.save();
+
+            respond.redirect("/sightings");
+            return null;
         }, new HandlebarsTemplateEngine());
 
 

@@ -32,6 +32,7 @@
                    <table class="table table-rangers">
                        <thead>
                        <tr class="ranger-header">
+                           <th scope="col ">Id</th>
                            <th scope="col ">Name</th>
                            <th scope="col">Badge No</th>
                            <th scope="col"> Phone Number</th>
@@ -40,6 +41,7 @@
                        <tbody>
                          {{#each ranger}}
                              <tr class="display-rangers">
+                                 <td>{{id}}</td>
                                  <td>{{ranger_name}}</td>
                                  <td>{{ranger_badge}}</td>
                                  <td>{{ranger_number}}</td>
