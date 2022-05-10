@@ -4,6 +4,7 @@ import java.util.HashMap;
 import models.Animals;
 import models.Endangered;
 import models.Location;
+import models.Ranger;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 import spark.ModelAndView;
 import java.util.Map;
@@ -71,6 +72,29 @@ public class App {
             res.redirect("/location");
             return null;
         },new HandlebarsTemplateEngine());
+
+        //get rangers
+        get("/rangers", (request,respond)->{
+            Map<String, Object>model=new HashMap<>();
+            model.put("ranger",Ranger.all());
+            return new ModelAndView(model,"rangers.hbs");
+        },  new HandlebarsTemplateEngine());
+
+        //post rangers
+
+        post("/ranger", (request,respond)->{
+            Map<String,Object>model=new HashMap<>();
+            String ranger_name=request.queryParams("ranger_name");
+            String ranger_badge=request.queryParams("ranger_badge");
+            String ranger_number=request.queryParams("ranger_number");
+
+            Ranger ranger=new Ranger(ranger_name,ranger_badge,ranger_number);
+            ranger.save();
+
+            respond.redirect("/rangers");
+            return null;
+
+        }, new HandlebarsTemplateEngine());
 
 
 
