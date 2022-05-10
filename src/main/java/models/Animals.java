@@ -1,6 +1,10 @@
 package models;
 import org.sql2o.Connection;
+
+import java.util.List;
 import java.util.Objects;
+
+import java.sql.ResultSet;
 
 public class Animals {
     private String name;
@@ -18,7 +22,7 @@ public class Animals {
             throw new IllegalArgumentException("Please input an animal name");
         }
         this.name=name;
-        category=THREAT_TYPE;
+
     }
 public Animals(String name, String category, String health, String age){
   this.name=name;
@@ -50,18 +54,54 @@ public Animals(String name, String category, String health, String age){
     }
 
     //Overriding the Animals
+
     @Override
-    public boolean equals(Object secondAnimal){
-        if(secondAnimal instanceof Animals){
-            Animals newAnimals=(Animals) secondAnimal;
-            return (this.getName().equals(newAnimals.getName()));
-        }
-        return false;
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Animals animal = (Animals) obj;
+        return id == animal.id &&
+                Objects.equals(name, animal.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, id);
     }
 
     // Save a new animal by their id name category health age
-    public void save(){
-
+    public void save() {
+        try (Connection con = DB.sql2o.open()) {
+            String sql = "INSERT INTO animals (name,category,health,age) VALUES (:name, :category,:health, :age)";
+            this.id = (int) con.createQuery(sql, true)
+                    .addParameter("name", this.name)
+                    .addParameter("category", this.category)
+                    .addParameter("health", this.health)
+                    .addParameter("age", this.age)
+                    .throwOnMappingFailure(false)
+                    .executeUpdate()
+                    .getKey();
+        }
     }
+// get all animals
+        public static List<Animals> all(){
+            String sql="SELECT *FROM animals";
+            try(Connection con =DB.sql2o.open()){
+                return con.createQuery(sql)
+                        .throwOnMappingFailure(false)
+                        .executeAndFetch(Animals.class);
+            }
+        }
+ //find animal by id
+    public static Animals find(int id) {
+        try(Connection con = DB.sql2o.open()) {
+            String sql = "SELECT * FROM animals where id=:id";
+            Animals animals = con.createQuery(sql)
+                    .addParameter("id", id)
+                    .executeAndFetchFirst(Animals.class);
+            return animals;
+        }
+    }
+
 
 }
