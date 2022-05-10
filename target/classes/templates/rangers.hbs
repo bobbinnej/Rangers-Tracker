@@ -1,0 +1,59 @@
+{{#partial "content"}}
+   <!--Add background image to ranger form-->
+   <div class="ranger-content" style="background:linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('images/rangersback.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+       <div class="new-animal">
+           <h1 class="new-animal-title" animate__animated animate__zoomInDown>New Ranger</h1>
+       </div>
+       <!--Ranger form-->
+       <div class="container ranger-form">
+           <div class="row">
+               <div class="col-md-4">
+
+                       <form method="post" action="/ranger" class="ranger-form">
+                           <div class="mb-3">
+                               <label for="ranger-name" class="form-label">Ranger Name:</label>
+                               <input type="text" class="form-control" id="ranger_name" name="ranger_name"  required><br>
+
+                               <label for="ranger-badge" class="form-label">Ranger Badge Number:</label>
+                               <input type="text" class="form-control" id="ranger_badge" name="ranger_badge"  required><br>
+
+                               <label for="ranger-number" class="form-label">Ranger Phone Number:</label>
+                               <input type="text" class="form-control" id="ranger_number" name="ranger_number"  required><br>
+
+                           </div>
+                           <div class="mb-3">
+                               <button class="add-animal-button" type="submit">Add Ranger</button>
+                           </div>
+                       </form>
+               </div>
+
+               <!--Display saved rangers-->
+               <div class="col saved-rangers">
+                   <table class="table table-rangers">
+                       <thead>
+                       <tr class="ranger-header">
+                           <th scope="col ">Id</th>
+                           <th scope="col ">Name</th>
+                           <th scope="col">Badge No</th>
+                           <th scope="col"> Phone Number</th>
+                       </tr>
+                       </thead>
+                       <tbody>
+                         {{#each ranger}}
+                             <tr class="display-rangers">
+                                 <td>{{id}}</td>
+                                 <td>{{ranger_name}}</td>
+                                 <td>{{ranger_badge}}</td>
+                                 <td>{{ranger_number}}</td>
+                             </tr>
+                             {{/each}}
+                       </tbody>
+                   </table>
+               </div>
+           </div>
+       </div>
+
+   </div>
+
+{{/partial}}
+{{>layout.hbs}}

@@ -1,0 +1,82 @@
+{{#partial "content"}}
+    <div class="animals-content" style="background: url('images/animalsback.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+        <div class="new-animal">
+            <h1 class="new-animal-title" animate__animated animate__zoomInDown>Add Sighted Animal Details</h1>
+        </div>
+        <div class="animals-form container">
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <form method="post" action="/animals/new">
+                        <div class="mb-3">
+                            <label for="animal-Name" class="form-label">Animal Name:</label>
+                            <input type="text" class="form-control" id="name" name="name" required ><br>
+                            <label for="animal-category" class="form-label">Animal Category:</label><br>
+                            <select class="form-control" id="category" name="category">
+                                <option>Select category option from dropdown</option>
+                                <option>Endangered animal</option>
+                                <option>Normal wild animal</option>
+                            </select><br>
+                            <label for="animal-health" class="form-label">Animal Health:</label><br>
+                            <select class="form-control" id="health" name="health">
+                                <option>Select health option from dropdown</option>
+                                <option>Healthy</option>
+                                <option>Ill</option>
+                                <option>Okay</option>
+                            </select><br>
+                            <label for="animal-age" class="form-label">Animal Age:</label><br>
+                            <select class="form-control" id="age" name="age">
+                                <option>Select age option from dropdown</option>
+                                <option>Newborn</option>
+                                <option>Young</option>
+                                <option>Adult</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <button class="add-animal-button" type="submit">Add Animal</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!--Display saved animals in a table-->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col"></div>
+            <div class="col-md-2"></div>
+        </div>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Name </th>
+                <th scope="col">Category</th>
+                <th scope="col">Health</th>
+                <th scope="col">Age</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            {{#each animals}}
+                <tr>
+                    <td>{{Id}}</td>
+                    <td>{{name}}</td>
+                    <td>{{category}}</td>
+                    <td>{{health}}</td>
+                    <td>{{age}}</td>
+                </tr>
+            {{/each}}
+            </tbody>
+        </table>
+    </div>
+
+
+
+{{/partial}}
+{{>layout.hbs}}

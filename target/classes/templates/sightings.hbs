@@ -1,0 +1,71 @@
+{{#partial "content"}}
+    <div class="sightings-content" style="background:linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, .5) ), url('images/sightingsback.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+        <!--Animated title-->
+        <div class="new-animal">
+            <h1 class="new-animal-title" animate__animated animate__zoomInDown>Add Sighting Details</h1>
+    </div>
+
+        <!--Sighting Form-->
+        <div class="sightings-layout container">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <form method="post" action="/sightings" class="ranger-form">
+                        <div class="mb-3">
+                            <label for="location" class="form-label">Location:</label>
+                            <input type="text" class="form-control" id="location" name="location"  required><br>
+
+                            <label for="ranger" class="form-label">Ranger :</label>
+                            <input type="text" class="form-control" id="ranger" name="ranger"  required><br>
+
+                            <label for="animal" class="form-label">Animal:</label>
+                            <input type="text" class="form-control" id="animal" name="animal"  required><br>
+
+                        </div>
+                        <div class="mb-3">
+                            <button class="add-animal-button" type="submit">Add</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+
+        </div>
+
+        <!--Display saved area of sight-->
+        <div class="container saved-sightings">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <table class="table table-sightings">
+                        <thead>
+                        <tr class="sightings-header">
+                            <th scope="col">Id</th>
+                            <th scope="col">Location of Sight</th>
+                            <th scope="col">Ranger</th>
+                            <th scope="col">Animal</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {{#each sightings}}
+                            <tr class="display-sightings">
+                                <th>{{id}}</th>
+                                <th>{{location}}</th>
+                                <th>{{ranger}}</th>
+                                <th>{{animal}}</th>
+                            </tr>
+                            {{/each}}
+
+                        </tbody>
+
+                    </table>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+        </div>
+
+
+    </div>
+
+{{/partial}}
+{{> layout.hbs}}
