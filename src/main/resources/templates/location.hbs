@@ -1,7 +1,10 @@
 {{#partial "content"}}
-    <div class="location content container">
-        //form for gathering input
-        <form method="post" action="/location">
+    <div class="location-content" style="background: url('images/locationback1.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+        <div class="new-animal">
+            <h1 class="new-animal-title" animate__animated animate__zoomInDown>Add Location Details</h1>
+        </div>
+        <!--Gather input for new location-->
+        <form class="location-form" method="post" action="/location">
             <div class="row" style="margin-bottom: 2%">
                 <div class="col-md-4"></div>
                 <div class="col">
@@ -13,23 +16,30 @@
             </div>
         </form>
 
-        <div class="location-table">
-            <table class="table">
-                <thead style="background-color:black; color:white">
-                <tr>
-                    <th scope="col">Id</th>
-                    <th scope="col">Name</th>
-                </tr>
-                </thead>
-                <tbody>
-                 {{#each location}}
-                     <tr>
-                         <th scope="row">{{id}}</th>
-                          <td>{{name}}</td>
-                     </tr>
-                     {{/each}}
-                </tbody>
-            </table>
+        <div class="location-table container">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <table class="table">
+                        <thead style="background-color:black; color:white">
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Name</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {{#each location}}
+                            <tr>
+                                <th scope="row">{{id}}</th>
+                                <td>{{name}}</td>
+                            </tr>
+                        {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+
         </div>
 
     </div>

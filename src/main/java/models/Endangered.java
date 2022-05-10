@@ -4,7 +4,7 @@ import org.sql2o.Connection;
 
 import java.util.Objects;
 
-public class Endangered  {
+public class Endangered extends Animals implements DatabaseManagement {
   private String name;
   private String category;
   private String health;
@@ -15,6 +15,8 @@ public class Endangered  {
   public static final String THREAT_TYPE="Endangered";
 
   public Endangered(String name, String category, String health, String age){
+
+    super(name,category,age,health);
     this.name=name;
     this.category=category;
     this.age=age;

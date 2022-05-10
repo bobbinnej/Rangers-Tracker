@@ -6,7 +6,7 @@ import java.util.Objects;
 
 import java.sql.ResultSet;
 
-public class Animals {
+public class Animals implements DatabaseManagement {
     private String name;
     private String category;
     private String health;
@@ -56,10 +56,10 @@ public Animals(String name, String category, String health, String age){
     //Overriding the Animals
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
-        Animals animal = (Animals) obj;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Animals animal = (Animals) o;
         return id == animal.id &&
                 Objects.equals(name, animal.name);
     }

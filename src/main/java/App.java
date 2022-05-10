@@ -35,10 +35,16 @@ public class App {
 
           if(request.queryParams("animals")!=null){
               if(!(name.trim().isEmpty() || category.trim().isEmpty() || health.trim().isEmpty() || age.trim().isEmpty())){
-                  Animals animals=new Animals(name,category,health,age);
-                  animals.save();
+                Endangered endangereds=new Endangered(name,category,health,age);
+                  endangereds.save();
               }else{System.out.println("Please fill all fields ");}
-          }
+          }else
+              if(!(name.trim().isEmpty())){
+                  Animals animals = new Animals(name,category, health, age);
+                  animals.save();
+              }else{System.out.println("Please fill all fields ");
+
+              }
 
           respond.redirect("/animals");
           return null;
