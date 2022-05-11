@@ -21,6 +21,13 @@
                             <label for="animal" class="form-label">Animal:</label>
                             <input type="text" class="form-control" id="animal" name="animal"  required><br>
 
+                            <label for="type" class="form-label"> Category:</label><br>
+                            <select class="form-control" id="type" name="type">
+                                <option>Select category option from dropdown</option>
+                                <option>Endangered animal</option>
+                                <option>Normal wild animal</option>
+                            </select><br>
+
                         </div>
                         <div class="mb-3">
                             <button class="add-animal-button" type="submit">Add</button>
@@ -44,19 +51,24 @@
                             <th scope="col">Location of Sight</th>
                             <th scope="col">Ranger</th>
                             <th scope="col">Animal</th>
+                            <th scope="col">Category</th>
                             <th scope="col">Time</th>
                         </tr>
                         </thead>
                         <tbody>
+
                         {{#each sightings}}
                             <tr class="display-sightings">
                                 <th>{{id}}</th>
                                 <th>{{location}}</th>
                                 <th>{{ranger}}</th>
                                 <th>{{animal}}</th>
-                                <th>{{time}}</th>
+                                <th>{{type}}</th>
+                                <th>{{s.time}}</th>
                             </tr>
                             {{/each}}
+
+
 
                         </tbody>
 

@@ -115,8 +115,9 @@ public class App {
             String location=request.queryParams("location");
             String ranger=request.queryParams("ranger");
             String animal=request.queryParams("animal");
+            String type=request.queryParams("type");
 
-            Sightings sightings=new Sightings(location,ranger,animal);
+            Sightings sightings=new Sightings(location,ranger,animal,type);
             sightings.save();
 
             respond.redirect("/sightings");

@@ -11,13 +11,16 @@ public class Sightings {
     private String location;
     private String ranger;
     private String animal;
+
+    private String type;
     private Date date= new Date();
     private Timestamp time;
 
-    public Sightings(String location, String ranger, String animal){
+    public Sightings(String location, String ranger, String animal, String type){
         this.location=location;
         this.ranger=ranger;
         this.animal=animal;
+        this.type=type;
         this.time=new Timestamp(date.getTime());
 
     }
@@ -38,6 +41,10 @@ public class Sightings {
         return animal;
     }
 
+    public String getType() {
+        return type;
+    }
+
     public Timestamp getTime() {
         return time;
     }
@@ -50,12 +57,13 @@ public class Sightings {
         return id == sightings.id &&
                 location == sightings.location &&
                 ranger== sightings.ranger &&
-                animal== sightings.animal;
+                animal== sightings.animal &&
+                type==sightings.type;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, location, ranger, animal);
+        return Objects.hash(id, location, ranger, animal,type);
     }
 
 
@@ -63,11 +71,12 @@ public class Sightings {
 
     public void save(){
         try(Connection con=DB.sql2o.open()){
-            String sql= "INSERT INTO sightings(location,ranger,animal) VALUES(:location, :ranger, :animal)";
+            String sql= "INSERT INTO sightings(location,ranger,animal,type) VALUES(:location, :ranger, :animal, :type)";
             this.id=(int) con.createQuery(sql,true)
                     .addParameter("location", this.location)
                     .addParameter("ranger", this.ranger)
                     .addParameter("animal", this.animal)
+                    .addParameter("type", this.type)
                     .executeUpdate()
                     .getKey();
         }
