@@ -22,6 +22,8 @@
 # Logs and databases #
 ############
 *.log
+*create.sql
+*drop.sql
 
 # OS generated files #
 ############
